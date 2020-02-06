@@ -157,7 +157,7 @@ def CheckWinner():
 
     elif(winner==2):
         messagebox.showinfo(title="Congrats !!!",message="Player 2 is the winner")
-        time.sleep(2)
+        time.sleep(1)
         exit()
     if(len(EmptyCells)==0):
         messagebox.showinfo(title="DRAW !!!",message="NO ONE WON !!!")
@@ -183,8 +183,12 @@ def AutoPlay():
     else:
         x=p1_list[len(p1_list)-1]
         y=p1_list[len(p1_list)-2]
+        i=0
 
-        print(len(p1_list))
-        print(len(p2_list))
-        ButtonClick(EmptyCells[randint(0,len(EmptyCells)-1)])
+        if(x+1 in EmptyCells):
+            ButtonClick(EmptyCells[EmptyCells.index(x+1)])
+        else:
+            if (len(EmptyCells) > 0):
+                ButtonClick(EmptyCells[randint(0, len(EmptyCells) - 1)])
+
 root.mainloop()
